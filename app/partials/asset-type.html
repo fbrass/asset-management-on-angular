@@ -1,1 +1,41 @@
-<p>This is the partial for view 1.</p>
+<div class="page-header">
+    <h1>Asset Type</h1>
+</div>
+
+<div class="container-fluid">
+
+    <div class="legend-container" ng-show="assetTypeActive.length">
+        <span class="the-legend">All types of assets</span>
+
+        <div class="table-responsive">
+            <table class="table table-striped asset-types-items">
+                <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Version</th>
+                    <th>Description</th>
+                    <th>Maker</th>
+                    <th>Function</th>
+                    <th>Comment</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="asset in assetTypeActive">
+                    <td class="col1"><a href="#/asset/{{asset.assetTypeId}}">{{asset.assetTypeName}}</a></td>
+                    <td class="col2">{{asset.version}}</td>
+                    <td class="col3">{{asset.description}}</td>
+                    <td class="col4">{{asset.make}}</td>
+                    <td class="col5">{{asset.function}}</td>
+                    <td class="col6">{{asset.comment}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-show="!assetTypeActive.length" class="alert alert-info" role="alert">
+            <p>Unfortunately there is nothing to show here. Maybe you want to <a href="#/create-asset-type"><strong>create</strong></a>
+                or review <a href="#/asset"><strong>existing</strong></a> asset type?</p>
+        </div>
+
+
+    </div>
+</div>

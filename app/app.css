@@ -53,11 +53,11 @@ body {
     list-style-type: none;
 }
 
-.dashboard-items .col1 {
+.asset-types-items .col1 {
     min-width: 8em;
 }
 
-.dashboard-items .col3 {
+.asset-types-items .col3 {
     min-width: 7em;
 }
 

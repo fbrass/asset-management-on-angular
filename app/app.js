@@ -37,10 +37,61 @@ assetManagementApp.controller('NavCtrl', ['$scope', '$route', function ($scope, 
 }]).
     controller('AssetTypeCtrl', ['$scope', function ($scope) {
 
+        var mockAssetTypes = [
+            {
+                "assetTypeId": 1,
+                "assetTypeName": "SPQR Assesment Tool",
+                "version": "V2",
+                "description": "best tool ever",
+                "make": "SPQR",
+                "function": "Assessment",
+                "comment": ""
+            },
+            {
+                "assetTypeId": 2,
+                "assetTypeName": "SPQR Testing Tool",
+                "version": "V3",
+                "description": "",
+                "make": "SPQR",
+                "function": "Testing",
+                "comment": ""
+            },
+            {
+                "assetTypeId": 3,
+                "assetTypeName": "Help Tool",
+                "version": "",
+                "description": "",
+                "make": "",
+                "function": "Help",
+                "comment": ""
+            },
+            {
+                "assetTypeId": 4,
+                "assetTypeName": "Mounting System",
+                "version": "X3",
+                "description": "",
+                "make": "",
+                "function": "Help",
+                "comment": ""
+            },
+            {
+                "assetTypeId": 5,
+                "assetTypeName": "UML Design",
+                "version": "",
+                "description": "",
+                "make": "SPQR",
+                "function": "Help",
+                "comment": ""
+            }];
 
-    }]).controller('AssetCtrl', ['$scope', function ($scope) {
 
-    }]).controller('AboutCtrl', ['$scope', function ($scope) {
+        $scope.assetTypeActive =mockAssetTypes;
+
+    }]).
+    controller('AssetCtrl', ['$scope', function ($scope) {
+
+    }]).
+    controller('AboutCtrl', ['$scope', function ($scope) {
     }]);
 
 
