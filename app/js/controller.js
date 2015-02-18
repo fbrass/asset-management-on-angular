@@ -1,8 +1,8 @@
 /**
  * Created by said on 18.02.2015.
  */
-var assetManagementController = angular.module('assetManagementController',[
-    'ngRoute'
+var assetManagementController = angular.module('assetManagementController', [
+
 ]);
 
 
@@ -64,7 +64,7 @@ assetManagementController.controller('AssetTypeListCtrl', ['$scope', function ($
 
 }]);
 
-assetManagementController.controller('EditAssetTypeCtrl',['$scope',function($scope){
+assetManagementController.controller('EditAssetTypeCtrl', ['$scope', function ($scope) {
 
 }]);
 
@@ -116,6 +116,7 @@ assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$route
                             "asset_id": 1,
                             "location_id": 1,
                             "type_id": 1,
+                            "logo_id": undefined,
                             "name": "Premium License",
                             "comment": "needs to be checked",
                             "construction_date": "01.01.2013",
@@ -126,6 +127,7 @@ assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$route
                             "asset_id": 3,
                             "location_id": 1,
                             "type_id": 1,
+                            "logo_id": undefined,
                             "name": "Free License",
                             "comment": "",
                             "construction_date": "01.01.2015",
@@ -218,6 +220,7 @@ assetManagementController.controller('AssetCtrl', ['$scope',
                         "asset_id": 1,
                         "location_id": 1,
                         "type_id": 1,
+                        "logo_id": undefined,
                         "name": "Premium License",
                         "comment": "needs to be checked",
                         "construction_date": "01.01.2013",
@@ -228,6 +231,7 @@ assetManagementController.controller('AssetCtrl', ['$scope',
                         "asset_id": 2,
                         "location_id": 1,
                         "type_id": 1,
+                        "logo_id": undefined,
                         "name": "Premium License",
                         "comment": "",
                         "construction_date": "01.01.2015",
@@ -238,6 +242,7 @@ assetManagementController.controller('AssetCtrl', ['$scope',
                         "asset_id": 3,
                         "location_id": 1,
                         "type_id": 1,
+                        "logo_id": undefined,
                         "name": "Free License",
                         "comment": "",
                         "construction_date": "01.01.2015",
@@ -285,8 +290,8 @@ assetManagementController.controller('AssetCtrl', ['$scope',
     }]);
 
 
-assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$routeParams', '$location',
-    function ($scope, $route, $routeParams, $location ) {
+assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$routeParams', '$location', '$upload',
+    function ($scope, $route, $routeParams, $location, $upload) {
         var editMode = $route.current.editMode !== 'create';
 
         $scope.isEditMode = editMode;
@@ -318,6 +323,7 @@ assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$rou
             $scope.asset = {
                 name: 'Premium License',
                 comment: 'needs to be checked',
+                "logo_id": undefined,
                 construction_date: dateToYMD(new Date()),
                 opening_value: 1200,
                 currency: 'euro'
@@ -328,6 +334,9 @@ assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$rou
         }
 
         $scope.saveAsset = function (anAsset) {
+            anAsset.imageUrl = undefined; //Not known on the server!
+
+
             //service zum erstellen eines Assets hier benutzten!!!!
 
             //unterscheidung zwischen edit und save nicht vergessen
@@ -342,6 +351,42 @@ assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$rou
         $scope.cancelEdit = function () {
             $location.path(/assets/ + $routeParams.asset_id);
         };
+
+        $scope.removeImage = function () {
+            $scope.imageUrl = undefined;
+            $scope.asset.logoId = undefined;
+        };
+
+        $scope.onFileSelect = function ($files) {
+
+            console.log($files);
+
+            // $files: an array of files selected, each file has name, size, and type.
+            for (var i = 0; i < $files.length; i++) {
+                var file = $files[i];
+                $scope.upload = $upload.upload({
+                    url: 'file',
+                    method: 'POST',
+                    file: file
+                }).progress(function (evt) {
+                    console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+                }).success(function (data /*, status, headers, config*/) { // file is uploaded successfully
+
+                    console.log("bis hier hin");
+                    console.log(data);
+                    console.log("bis hier hin2");
+                    $scope.uploads = data;
+
+
+                    if (data != null && data.length > 0) {
+                        var i = data[0];
+                        console.log("bis hier hin3");
+                        $scope.asset.logo_id = i.logo_id;
+                        $scope.imageUrl = i.imageUrl;
+                    }
+                });
+            }
+        }
 
 
     }
