@@ -1,70 +1,16 @@
-'use strict';
-
-// Declare app level module which depends on views, and components
-var assetManagementApp = angular.module('myApp', [
-    'ngRoute',
-    'angularFileUpload',
-    'ui.bootstrap'
+/**
+ * Created by said on 18.02.2015.
+ */
+var assetManagementController = angular.module('assetManagementController',[
+    'ngRoute'
 ]);
 
-assetManagementApp.config(['$routeProvider',
-    function ($routeProvider) {
-        $routeProvider.
-            when('/', {
-                redirectTo: '/asset-type-list'
-            }).
-            when('/asset-type-list', {
-                templateUrl: 'partials/asset-type-list.html',
-                controller: 'AssetTypeListCtrl',
-                activeTab: 'asset-type'
-            }).
-            when('/asset-type/:type_id', {
-                templateUrl: 'partials/edit-asset-type.html',
-                controller: 'EditAssetTypeCtrl',
-                activeTab:'asset-type'
-            }).
-            when('/create-asset-type',{
-                templateUrl:'partials/edit-asset-type.html',
-                controller:'EditAssetTypeCtrl',
-                activeTab:'asset-type'
-            }).
-            when('/asset/', {
-                templateUrl: 'partials/asset-list.html',
-                controller: 'AssetCtrl',
-                activeTab: 'asset'
-            }).
-            when('/asset/:type_id', {
-                templateUrl: 'partials/asset-list.html',
-                controller: 'AssetListedByTypeCtrl',
-                activeTab: 'asset'
-            }).
-            when('/edit-asset/:asset_id', {
-                templateUrl: 'partials/edit-asset.html',
-                controller: 'EditAssetCtrl',
-                activeTab: 'asset'
-            }).
-            when('/create-asset', {
-                templateUrl: 'partials/edit-asset.html',
-                controller: 'EditAssetCtrl',
-                editMode: 'create',
-                activeTab: 'asset'
-            }).
-            when('/about', {
-                templateUrl: 'partials/about.html',
-                controller: 'AboutCtrl',
-                activeTab: 'about'
-            }).
-            otherwise({
-                redirectTo: '/asset-type-list'
-            });
-    }
-]);
 
-assetManagementApp.controller('NavCtrl', ['$scope', '$route', function ($scope, $route) {
+assetManagementController.controller('NavCtrl', ['$scope', '$route', function ($scope, $route) {
     $scope.$route = $route;
 }]);
 
-assetManagementApp.controller('AssetTypeListCtrl', ['$scope', function ($scope) {
+assetManagementController.controller('AssetTypeListCtrl', ['$scope', function ($scope) {
 
     var mockAssetTypes = [
         {
@@ -118,11 +64,11 @@ assetManagementApp.controller('AssetTypeListCtrl', ['$scope', function ($scope) 
 
 }]);
 
-assetManagementApp.controller('EditAssetTypeCtrl',['$scope',function($scope){
+assetManagementController.controller('EditAssetTypeCtrl',['$scope',function($scope){
 
 }]);
 
-assetManagementApp.controller('AssetListedByTypeCtrl', ['$scope', '$routeParams',
+assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$routeParams',
     function ($scope, $routeParams) {
 
         $scope.paginationInfo = {
@@ -228,7 +174,7 @@ assetManagementApp.controller('AssetListedByTypeCtrl', ['$scope', '$routeParams'
     }]);
 
 
-assetManagementApp.controller('AssetCtrl', ['$scope',
+assetManagementController.controller('AssetCtrl', ['$scope',
     function ($scope) {
         $scope.paginationInfo = {
             searchText: undefined,
@@ -339,7 +285,7 @@ assetManagementApp.controller('AssetCtrl', ['$scope',
     }]);
 
 
-assetManagementApp.controller('EditAssetCtrl', ['$scope', '$route', '$routeParams', '$location',
+assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$routeParams', '$location',
     function ($scope, $route, $routeParams, $location ) {
         var editMode = $route.current.editMode !== 'create';
 
@@ -402,10 +348,7 @@ assetManagementApp.controller('EditAssetCtrl', ['$scope', '$route', '$routeParam
 
 ]);
 
-assetManagementApp.controller('AboutCtrl', ['$scope', function ($scope) {
+assetManagementController.controller('AboutCtrl', ['$scope', function ($scope) {
 
 
 }]);
-
-
-
