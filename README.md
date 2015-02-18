@@ -67,12 +67,12 @@ Now browse to the app at `http://localhost:8000/app/index.html`.
 
 ## Testing
 
-//editing
+// nedds to be edited
 There are two kinds of tests in the angular-seed application: Unit tests and End to End tests.
 
 ### Running Unit Tests
 
-//editing
+// nedds to be edited
 The angular-seed app comes preconfigured with unit tests. These are written in
 [Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma
 configuration file to run them.
@@ -102,7 +102,7 @@ npm run test-single-run
 
 ### End to end testing
 
-//editing
+// nedds to be edited
 The angular-seed app comes with end-to-end tests, again written in [Jasmine][jasmine]. These tests
 are run with the [Protractor][protractor] End-to-End test runner.  It uses native events and has
 special features for Angular applications.
@@ -141,7 +141,7 @@ development server.
 
 ## Serving the Application Files
 
-//editing
+// nedds to be edited
 While angular is client-side-only technology and it's possible to create angular webapps that
 don't require a backend server at all, we recommend serving the project files using a local
 webserver during development to avoid issues with security restrictions (sandbox) in browsers. The
@@ -151,6 +151,7 @@ etc to function properly when an html page is opened via `file://` scheme instea
 
 ### Running the App during Development
 
+// nedds to be edited
 The angular-seed project comes preconfigured with a local development webserver.  It is a node.js
 tool called [http-server][http-server].  You can start this webserver with `npm start` but you may choose to
 install the tool globally:
@@ -172,7 +173,7 @@ configure your server to serve the files under the `app/` directory.
 
 ### Running the App in Production
 
-//editing
+// nedds to be edited
 This really depends on how complex your app is and the overall infrastructure of your system, but
 the general rule is that all you need in production are all the files under the `app/` directory.
 Everything else should be omitted.
