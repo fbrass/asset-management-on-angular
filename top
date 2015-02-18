@@ -1,0 +1,175 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 01052ff..bd00197 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -12,14 +12,13 @@[m [mThe seed app doesn't do much, just shows how to wire two controllers and views t[m
+ [m
+ ## Getting Started[m
+ [m
+[31m-To get you started you can simply clone the angular-seed repository and install the dependencies:[m
+[32m+[m[32mTo get you started you can simply clone the repository and install the dependencies:[m
+ [m
+ ### Prerequisites[m
+ [m
+[31m-You need git to clone the angular-seed repository. You can get git from[m
+[31m-[http://git-scm.com/](http://git-scm.com/).[m
+[32m+[m[32mYou need git to clone the angular-seed repository.[m
+ [m
+[31m-We also use a number of node.js tools to initialize and test angular-seed. You must have node.js and[m
+[32m+[m[32mYou need to use a number of node.js tools to initialize asset-management-on-angular. You must have node.js and[m
+ its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).[m
+ [m
+ ### Clone angular-seed[m
+[36m@@ -27,27 +26,15 @@[m [mits package manager (npm) installed.  You can get them from [http://nodejs.org/][m
+ Clone the angular-seed repository using [git][git]:[m
+ [m
+ ```[m
+[31m-git clone https://github.com/angular/angular-seed.git[m
+[31m-cd angular-seed[m
+[32m+[m[32mgit clone https://github.com/fbrass/asset-management-on-angular[m
+[32m+[m[32mcd asset-management-on-angular[m
+ ```[m
+ [m
+[31m-If you just want to start a new project without the angular-seed commit history then you can do:[m
+ [m
+[31m-```bash[m
+[31m-git clone --depth=1 https://github.com/angular/angular-seed.git <your-project-name>[m
+[31m-```[m
+[31m-[m
+[31m-The `depth=1` tells git to only pull down one commit worth of historical data.[m
+ [m
+ ### Install Dependencies[m
+ [m
+[31m-We have two kinds of dependencies in this project: tools and angular framework code.  The tools help[m
+[31m-us manage and test the application.[m
+[31m-[m
+[31m-* We get the tools we depend upon via `npm`, the [node package manager][npm].[m
+[31m-* We get the angular code via `bower`, a [client-side code package manager][bower].[m
+[31m-[m
+[31m-We have preconfigured `npm` to automatically run `bower` so we can simply do:[m
+[32m+[m[32mTo install the dependencies in this project just use[m
+ [m
+ ```[m
+ npm install[m
+[36m@@ -60,11 +47,13 @@[m [mfolders in your project.[m
+ * `app/bower_components` - contains the angular framework files[m
+ [m
+ *Note that the `bower_components` folder would normally be installed in the root folder but[m
+[31m-angular-seed changes this location through the `.bowerrc` file.  Putting it in the app folder makes[m
+[32m+[m[32masset-management-on-angular changes this location through the `.bowerrc` file.  Putting it in the app folder makes[m
+ it easier to serve the files by a webserver.*[m
+ [m
+ ### Run the Application[m
+ [m
+[32m+[m[32m// nedds to be edited[m
+[32m+[m
+ We have preconfigured the project with a simple development web server.  The simplest way to start[m
+ this server is:[m
+ [m
+[36m@@ -76,41 +65,14 @@[m [mNow browse to the app at `http://localhost:8000/app/index.html`.[m
+ [m
+ [m
+ [m
+[31m-## Directory Layout[m
+[31m-[m
+[31m-```[m
+[31m-app/                    --> all of the source files for the application[m
+[31m-  app.css               --> default stylesheet[m
+[31m-  components/           --> all app specific modules[m
+[31m-    version/              --> version related components[m
+[31m-      version.js                 --> version module declaration and basic "version" value service[m
+[31m-      version_test.js            --> "version" value service tests[m
+[31m-      version-directive_test.js  --> version directive tests[m
+[31m-      interpolate-filter.js      --> custom interpolation filter[m
+[31m-      interpolate-filter_test.js --> interpolate filter tests[m
+[31m-  view1/                --> the view1 view template and logic[m
+[31m-    view1.html            --> the partial template[m
+[31m-    view1.js              --> the controller logic[m
+[31m-    view1_test.js         --> tests of the controller[m
+[31m-  view2/                --> the view2 view template and logic[m
+[31m-    view2.html            --> the partial template[m
+[31m-    view2.js              --> the controller logic[m
+[31m-    view2_test.js         --> tests of the controller[m
+[31m-  app.js                --> main application module[m
+[31m-  index.html            --> app layout file (the main html template file of the app)[m
+[31m-  index-async.html      --> just like index.html, but loads js files asynchronously[m
+[31m-karma.conf.js         --> config file for running unit tests with Karma[m
+[31m-e2e-tests/            --> end-to-end tests[m
+[31m-  protractor-conf.js    --> Protractor config file[m
+[31m-  scenarios.js          --> end-to-end scenarios to be run by Protractor[m
+[31m-```[m
+[31m-[m
+ ## Testing[m
+ [m
+[32m+[m[32m//editing[m
+ There are two kinds of tests in the angular-seed application: Unit tests and End to End tests.[m
+ [m
+ ### Running Unit Tests[m
+ [m
+[32m+[m[32m//editing[m
+ The angular-seed app comes preconfigured with unit tests. These are written in[m
+ [Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma[m
+ configuration file to run them.[m
+[36m@@ -140,6 +102,7 @@[m [mnpm run test-single-run[m
+ [m
+ ### End to end testing[m
+ [m
+[32m+[m[32m//editing[m
+ The angular-seed app comes with end-to-end tests, again written in [Jasmine][jasmine]. These tests[m
+ are run with the [Protractor][protractor] End-to-End test runner.  It uses native events and has[m
+ special features for Angular applications.[m
+[36m@@ -175,46 +138,10 @@[m [mThis script will execute the end-to-end tests against the application being host[m
+ development server.[m
+ [m
+ [m
+[31m-## Updating Angular[m
+[31m-[m
+[31m-Previously we recommended that you merge in changes to angular-seed into your own fork of the project.[m
+[31m-Now that the angular framework library code and tools are acquired through package managers (npm and[m
+[31m-bower) you can use these tools instead to update the dependencies.[m
+[31m-[m
+[31m-You can update the tool dependencies by running:[m
+[31m-[m
+[31m-```[m
+[31m-npm update[m
+[31m-```[m
+[31m-[m
+[31m-This will find the latest versions that match the version ranges specified in the `package.json` file.[m
+[31m-[m
+[31m-You can update the Angular dependencies by running:[m
+[31m-[m
+[31m-```[m
+[31m-bower update[m
+[31m-```[m
+[31m-[m
+[31m-This will find the latest versions that match the version ranges specified in the `bower.json` file.[m
+[31m-[m
+[31m-[m
+[31m-## Loading Angular Asynchronously[m
+[31m-[m
+[31m-The angular-seed project supports loading the framework and application scripts asynchronously.  The[m
+[31m-special `index-async.html` is designed to support this style of loading.  For it to work you must[m
+[31m-inject a piece of Angular JavaScript into the HTML page.  The project has a predefined script to help[m
+[31m-do this.[m
+[31m-[m
+[31m-```[m
+[31m-npm run update-index-async[m
+[31m-```[m
+[31m-[m
+[31m-This will copy the contents of the `angular-loader.js` library file into the `index-async.html` page.[m
+[31m-You can run this every time you update the version of Angular that you are using.[m
+[31m-[m
+ [m
+ ## Serving the Application Files[m
+ [m
+[32m+[m[32m//editing[m
+ While angular is client-side-only technology and it's possible to create angular webapps that[m
+ don't require a backend server at all, we recommend serving the project files using a local[m
+ webserver during development to avoid issues with security restrictions (sandbox) in browsers. The[m
+[36m@@ -245,6 +172,7 @@[m [mconfigure your server to serve the files under the `app/` directory.[m
+ [m
+ ### Running the App in Production[m
+ [m
+[32m+[m[32m//editing[m
+ This really depends on how complex your app is and the overall infrastructure of your system, but[m
+ the gener
