@@ -116,7 +116,7 @@ assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$route
                             "asset_id": 1,
                             "location_id": 1,
                             "type_id": 1,
-                            "name": "Premium Licence",
+                            "name": "Premium License",
                             "comment": "needs to be checked",
                             "construction_date": "01.01.2013",
                             "opening_value": 1200,
@@ -126,7 +126,7 @@ assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$route
                             "asset_id": 3,
                             "location_id": 1,
                             "type_id": 1,
-                            "name": "Free Licence",
+                            "name": "Free License",
                             "comment": "",
                             "construction_date": "01.01.2015",
                             "opening_value": 0,
@@ -218,7 +218,7 @@ assetManagementController.controller('AssetCtrl', ['$scope',
                         "asset_id": 1,
                         "location_id": 1,
                         "type_id": 1,
-                        "name": "Premium Licence",
+                        "name": "Premium License",
                         "comment": "needs to be checked",
                         "construction_date": "01.01.2013",
                         "opening_value": 1200,
@@ -228,7 +228,7 @@ assetManagementController.controller('AssetCtrl', ['$scope',
                         "asset_id": 2,
                         "location_id": 1,
                         "type_id": 1,
-                        "name": "Premium Licence",
+                        "name": "Premium License",
                         "comment": "",
                         "construction_date": "01.01.2015",
                         "opening_value": 1300,
@@ -238,7 +238,7 @@ assetManagementController.controller('AssetCtrl', ['$scope',
                         "asset_id": 3,
                         "location_id": 1,
                         "type_id": 1,
-                        "name": "Free Licence",
+                        "name": "Free License",
                         "comment": "",
                         "construction_date": "01.01.2015",
                         "opening_value": 0,
@@ -292,7 +292,7 @@ assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$rou
         $scope.isEditMode = editMode;
 
         $scope.titleText = editMode ? 'Edit Asset' : 'New Asset';
-        $scope.subTitleText = editMode ? '' : 'what a luck';
+        $scope.subTitleText = editMode ? '' : '';
         $scope.legendText = $scope.titleText;
         $scope.saveAssetText = editMode ? 'Save' : 'Create';
         $scope.cancelText = 'Cancel';
@@ -316,7 +316,7 @@ assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$rou
         if (editMode) {
             //hier muss der service noch implementiert werden
             $scope.asset = {
-                name: 'Premium Licence',
+                name: 'Premium License',
                 comment: 'needs to be checked',
                 construction_date: dateToYMD(new Date()),
                 opening_value: 1200,
