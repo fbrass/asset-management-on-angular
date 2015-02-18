@@ -1,5 +1,6 @@
 # Asset Management App in AngularJS
 
+//  needs to be edited
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 You can use it to quickly bootstrap your angular webapp projects and dev environment for these
 projects.
@@ -16,14 +17,14 @@ To get you started you can simply clone the repository and install the dependenc
 
 ### Prerequisites
 
-You need git to clone the angular-seed repository.
+You need git to clone the repository.
 
 You need to use a number of node.js tools to initialize asset-management-on-angular. You must have node.js and
 its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
 
-### Clone angular-seed
+### Clone asset-management-on-angular
 
-Clone the angular-seed repository using [git][git]:
+Clone the asset-management-on-angular repository using [git][git]:
 
 ```
 git clone https://github.com/fbrass/asset-management-on-angular
@@ -52,7 +53,7 @@ it easier to serve the files by a webserver.*
 
 ### Run the Application
 
-// nedds to be edited
+// needs to be edited
 
 We have preconfigured the project with a simple development web server.  The simplest way to start
 this server is:
@@ -67,12 +68,12 @@ Now browse to the app at `http://localhost:8000/app/index.html`.
 
 ## Testing
 
-// nedds to be edited
+// needs to be edited
 There are two kinds of tests in the angular-seed application: Unit tests and End to End tests.
 
 ### Running Unit Tests
 
-// nedds to be edited
+// needs to be edited
 The angular-seed app comes preconfigured with unit tests. These are written in
 [Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma
 configuration file to run them.
@@ -102,7 +103,8 @@ npm run test-single-run
 
 ### End to end testing
 
-// nedds to be edited
+// needs to be edited
+
 The angular-seed app comes with end-to-end tests, again written in [Jasmine][jasmine]. These tests
 are run with the [Protractor][protractor] End-to-End test runner.  It uses native events and has
 special features for Angular applications.
@@ -141,7 +143,7 @@ development server.
 
 ## Serving the Application Files
 
-// nedds to be edited
+// needs to be edited
 While angular is client-side-only technology and it's possible to create angular webapps that
 don't require a backend server at all, we recommend serving the project files using a local
 webserver during development to avoid issues with security restrictions (sandbox) in browsers. The
@@ -151,7 +153,7 @@ etc to function properly when an html page is opened via `file://` scheme instea
 
 ### Running the App during Development
 
-// nedds to be edited
+// needs to be edited
 The angular-seed project comes preconfigured with a local development webserver.  It is a node.js
 tool called [http-server][http-server].  You can start this webserver with `npm start` but you may choose to
 install the tool globally:
@@ -173,7 +175,7 @@ configure your server to serve the files under the `app/` directory.
 
 ### Running the App in Production
 
-// nedds to be edited
+// needs to be edited
 This really depends on how complex your app is and the overall infrastructure of your system, but
 the general rule is that all you need in production are all the files under the `app/` directory.
 Everything else should be omitted.
