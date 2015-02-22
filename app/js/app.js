@@ -23,21 +23,23 @@ assetManagementApp.config(['$routeProvider',
             when('/asset-type/:type_id', {
                 templateUrl: 'partials/edit-asset-type.html',
                 controller: 'EditAssetTypeCtrl',
-                activeTab:'asset-type'
+                activeTab: 'asset-type'
             }).
-            when('/create-asset-type',{
-                templateUrl:'partials/edit-asset-type.html',
-                controller:'EditAssetTypeCtrl',
-                activeTab:'asset-type'
+            when('/create-asset-type', {
+                templateUrl: 'partials/edit-asset-type.html',
+                controller: 'EditAssetTypeCtrl',
+                activeTab: 'asset-type'
             }).
             when('/asset/', {
                 templateUrl: 'partials/asset-list.html',
-                controller: 'AssetCtrl',
+                controller: 'AssetsCtrl',
+                typeMode:'no-type',
                 activeTab: 'asset'
             }).
             when('/asset/:type_id', {
                 templateUrl: 'partials/asset-list.html',
-                controller: 'AssetListedByTypeCtrl',
+                controller: 'AssetsCtrl',
+                typeMode:'type',
                 activeTab: 'asset'
             }).
             when('/edit-asset/:asset_id', {

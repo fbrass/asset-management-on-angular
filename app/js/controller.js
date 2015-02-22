@@ -6,147 +6,16 @@ assetManagementController.controller('NavCtrl', ['$scope', '$route', function ($
     $scope.$route = $route;
 }]);
 
-assetManagementController.controller('AssetTypeListCtrl', ['$scope', function ($scope) {
-
-    var mockAssetTypes = [
-        {
-            "type_id": 1,
-            "assetTypeName": "SPQR Assesment Tool",
-            "version": "V2",
-            "description": "best tool ever",
-            "make": "SPQR",
-            "function": "Assessment",
-            "comment": ""
-        },
-        {
-            "type_id": 2,
-            "assetTypeName": "SPQR Testing Tool",
-            "version": "V3",
-            "description": "",
-            "make": "SPQR",
-            "function": "Testing",
-            "comment": ""
-        },
-        {
-            "type_id": 3,
-            "assetTypeName": "Help Tool",
-            "version": "",
-            "description": "",
-            "make": "",
-            "function": "Help",
-            "comment": ""
-        },
-        {
-            "type_id": 4,
-            "assetTypeName": "Mounting System",
-            "version": "X3",
-            "description": "",
-            "make": "",
-            "function": "Mounting",
-            "comment": ""
-        },
-        {
-            "type_id": 5,
-            "assetTypeName": "UML Design",
-            "version": "",
-            "description": "",
-            "make": "SPQR",
-            "function": "Modelling",
-            "comment": ""
-        },
-        {
-            "type_id": 6,
-            "assetTypeName": "Wireframe Design",
-            "version": "V2",
-            "description": "",
-            "make": "SPQR",
-            "function": "Modelling",
-            "comment": ""
-        },
-        {
-            "type_id": 7,
-            "assetTypeName": "License Management Tool",
-            "version": "1.374",
-            "description": "",
-            "make": "Example",
-            "function": "Management",
-            "comment": ""
-        },
-        {
-            "type_id": 8,
-            "assetTypeName": "ERP System Professional",
-            "version": "V15",
-            "description": "ERP-System",
-            "make": "SPQR",
-            "function": "Enterprise Resource Planing",
-            "comment": ""
-        },
-        {
-            "type_id": 9,
-            "assetTypeName": "Information Manager",
-            "version": "",
-            "description": "",
-            "make": "",
-            "function": "",
-            "comment": ""
-        },
-        {
-            "type_id": 10,
-            "assetTypeName": "Key Manager",
-            "version": "V5",
-            "description": "",
-            "make": "",
-            "function": "",
-            "comment": ""
-        },
-        {
-            "type_id": 11,
-            "assetTypeName": "Email Server",
-            "version": "3.1",
-            "description": "",
-            "make": "SPQR",
-            "function": "",
-            "comment": ""
-        },
-        {
-            "type_id": 12,
-            "assetTypeName": "SPQR Phone Tracer",
-            "version": "2.4",
-            "description": "",
-            "make": "SPQR",
-            "function": "Tracing",
-            "comment": ""
-        },
-        {
-            "type_id": 13,
-            "assetTypeName": "SPQR Surveillance System",
-            "version": "",
-            "description": "",
-            "make": "SPQR",
-            "function": "Monitoring",
-            "comment": ""
-        },
-        {
-            "type_id": 6,
-            "assetTypeName": "Wireframe Design",
-            "version": "V2",
-            "description": "",
-            "make": "SPQR",
-            "function": "Modelling",
-            "comment": ""
-        }];
-
-
-    $scope.assetTypeActive = mockAssetTypes;
-
+assetManagementController.controller('AssetTypeListCtrl', ['$scope', 'AssetTypeList', function ($scope, AssetTypeList) {
+    $scope.assetTypeActive = AssetTypeList.query();
 }]);
 
 assetManagementController.controller('EditAssetTypeCtrl', ['$scope', function ($scope) {
-
+    //not implemented yet
 }]);
 
-assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$routeParams',
-    function ($scope, $routeParams) {
+assetManagementController.controller('AssetsCtrl', ['$scope', '$route', '$routeParams', 'AssetList',
+    function ($scope, $route, $routeParams, AssetList) {
 
         $scope.paginationInfo = {
             searchText: undefined,
@@ -156,6 +25,10 @@ assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$route
             hasPrev: false,
             count: 0
         };
+
+        var typeMode = $route.current.typeMode !== 'type';
+
+        $scope.titleText = typeMode ? 'Assets' : 'All Assets From Type '+$routeParams.type_id;
 
         $scope.getPaginated = function () {
             var search;
@@ -173,6 +46,13 @@ assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$route
                     page: $scope.paginationInfo.page,
                     searchText: search
                 };
+            }
+            if ($routeParams.type_id) {
+                args = {
+                    pageSize: $scope.paginationInfo.pageSize,
+                    page: $scope.paginationInfo.page,
+                    typeId: $routeParams.type_id
+                };
             } else {
                 args = {
                     pageSize: $scope.paginationInfo.pageSize,
@@ -180,110 +60,14 @@ assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$route
                 };
             }
 
-            //service aufruf!!! bzw. einfügen der Mockobjekte
-            var mockAssets;
 
-            if ($routeParams.type_id == 1) {
+            AssetList.getPaginated(args, function (data) {
+                $scope.assets = data.assets;
+                $scope.paginationInfo.count = data.total;
+                $scope.paginationInfo.hasPrev = $scope.paginationInfo.page > 1;
+                $scope.paginationInfo.hasNext = data.assets.length >= $scope.paginationInfo.pageSize;
 
-                mockAssets =
-                {
-                    "total": 8,
-                    "assets": [
-                        {
-                            "asset_id": 1,
-                            "location_id": 1,
-                            "type_id": 1,
-                            "logo_id": undefined,
-                            "name": "Premium License",
-                            "comment": "needs to be checked",
-                            "construction_date": "01.01.2013",
-                            "opening_value": 1200,
-                            "currency": "euro"
-                        },
-                        {
-                            "asset_id": 3,
-                            "location_id": 1,
-                            "type_id": 1,
-                            "logo_id": undefined,
-                            "name": "Free License",
-                            "comment": "",
-                            "construction_date": "01.01.2015",
-                            "opening_value": 0,
-                            "currency": "euro"
-                        },
-                        {
-                            "asset_id": 4,
-                            "location_id": 1,
-                            "type_id": 1,
-                            "logo_id": undefined,
-                            "name": "Free License",
-                            "comment": "",
-                            "construction_date": "01.01.2015",
-                            "opening_value": 0,
-                            "currency": "euro"
-                        },
-                        {
-                            "asset_id": 5,
-                            "location_id": 1,
-                            "type_id": 1,
-                            "logo_id": undefined,
-                            "name": "Free License",
-                            "comment": "",
-                            "construction_date": "01.01.2015",
-                            "opening_value": 0,
-                            "currency": "euro"
-                        },
-                        {
-                            "asset_id": 6,
-                            "location_id": 1,
-                            "type_id": 1,
-                            "logo_id": undefined,
-                            "name": "Free License",
-                            "comment": "",
-                            "construction_date": "01.01.2015",
-                            "opening_value": 0,
-                            "currency": "euro"
-                        },
-                        {
-                            "asset_id": 7,
-                            "location_id": 1,
-                            "type_id": 1,
-                            "logo_id": undefined,
-                            "name": "Free License",
-                            "comment": "",
-                            "construction_date": "01.01.2015",
-                            "opening_value": 0,
-                            "currency": "euro"
-                        },
-                        {
-                            "asset_id": 8,
-                            "location_id": 1,
-                            "type_id": 1,
-                            "logo_id": undefined,
-                            "name": "Free License",
-                            "comment": "",
-                            "construction_date": "01.01.2015",
-                            "opening_value": 0,
-                            "currency": "euro"
-                        },
-                        {
-                            "asset_id": 9,
-                            "location_id": 1,
-                            "type_id": 1,
-                            "logo_id": undefined,
-                            "name": "Free License",
-                            "comment": "",
-                            "construction_date": "01.01.2015",
-                            "opening_value": 0,
-                            "currency": "euro"
-                        }]
-                };
-            }
-
-            $scope.assets = mockAssets.assets;
-            $scope.paginationInfo.count = mockAssets.total;
-            $scope.paginationInfo.hasPrev = $scope.paginationInfo.page > 1;
-            $scope.paginationInfo.hasNext = mockAssets.assets.length >= $scope.paginationInfo.pageSize;
+            });
 
         };
 
@@ -302,220 +86,14 @@ assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$route
         };
 
         $scope.search = function () {
-            //search wurde noch nicht implementiert und eignet sich auch nicht für mockobjekte ;)
-        };
-
-        $scope.$watch('paginationInfo.searchText', function () {
-            $scope.paginationInfo.page = 1;
-        });
-
-        $scope.isSearchEnabled = function () {
-            return $scope.paginationInfo.searchText && $scope.paginationInfo.searchText.length > 1;
-        };
-
-        //initial load of data
-        $scope.getPaginated();
-
-    }]);
-
-
-assetManagementController.controller('AssetCtrl', ['$scope',
-    function ($scope) {
-        $scope.paginationInfo = {
-            searchText: undefined,
-            pageSize: 25,
-            page: 1,
-            hasNext: true,
-            hasPrev: false,
-            count: 0
-        };
-
-
-        $scope.getPaginated = function () {
-            var search;
-
-            if ($scope.paginationInfo.searchText && $scope.paginationInfo.searchText.length > 1) {
-                search = $scope.paginationInfo.searchText;
-            } else {
-                search = undefined;
+            var timer;
+            if (timer) {
+                clearTimeout(timer);
             }
 
-            var args;
-            if (search) {
-                args = {
-                    pageSize: $scope.paginationInfo.pageSize,
-                    page: $scope.paginationInfo.page,
-                    searchText: search
-                };
-            } else {
-                args = {
-                    pageSize: $scope.paginationInfo.pageSize,
-                    page: $scope.paginationInfo.page
-                };
-            }
-
-            //service aufruf!!! bzw. einfügen der Mockobjekte
-            var mockAssets =
-            {
-                "total": 12,
-                "assets": [
-                    {
-                        "asset_id": 1,
-                        "location_id": 1,
-                        "type_id": 1,
-                        "logo_id": undefined,
-                        "name": "Premium License",
-                        "comment": "needs to be checked",
-                        "construction_date": "01.01.2013",
-                        "opening_value": 1200,
-                        "currency": "euro"
-                    },
-                    {
-                        "asset_id": 2,
-                        "location_id": 1,
-                        "type_id": 1,
-                        "logo_id": undefined,
-                        "name": "Premium License",
-                        "comment": "",
-                        "construction_date": "01.01.2015",
-                        "opening_value": 1300,
-                        "currency": "euro"
-                    },
-                    {
-                        "asset_id": 3,
-                        "location_id": 1,
-                        "type_id": 1,
-                        "logo_id": undefined,
-                        "name": "Free License",
-                        "comment": "",
-                        "construction_date": "01.01.2015",
-                        "opening_value": 0,
-                        "currency": "euro"
-                    },
-                    {
-                        "asset_id": 4,
-                        "location_id": 1,
-                        "type_id": 1,
-                        "logo_id": undefined,
-                        "name": "Free License",
-                        "comment": "",
-                        "construction_date": "01.01.2015",
-                        "opening_value": 0,
-                        "currency": "euro"
-                    },
-                    {
-                        "asset_id": 5,
-                        "location_id": 1,
-                        "type_id": 1,
-                        "logo_id": undefined,
-                        "name": "Free License",
-                        "comment": "",
-                        "construction_date": "01.01.2015",
-                        "opening_value": 0,
-                        "currency": "euro"
-                    },
-                    {
-                        "asset_id": 6,
-                        "location_id": 1,
-                        "type_id": 1,
-                        "logo_id": undefined,
-                        "name": "Free License",
-                        "comment": "",
-                        "construction_date": "01.01.2015",
-                        "opening_value": 0,
-                        "currency": "euro"
-                    },
-                    {
-                        "asset_id": 7,
-                        "location_id": 1,
-                        "type_id": 1,
-                        "logo_id": undefined,
-                        "name": "Free License",
-                        "comment": "",
-                        "construction_date": "01.01.2015",
-                        "opening_value": 0,
-                        "currency": "euro"
-                    },
-                    {
-                        "asset_id": 8,
-                        "location_id": 1,
-                        "type_id": 1,
-                        "logo_id": undefined,
-                        "name": "Free License",
-                        "comment": "",
-                        "construction_date": "01.01.2015",
-                        "opening_value": 0,
-                        "currency": "euro"
-                    },
-                    {
-                        "asset_id": 9,
-                        "location_id": 1,
-                        "type_id": 1,
-                        "logo_id": undefined,
-                        "name": "Free License",
-                        "comment": "",
-                        "construction_date": "01.01.2015",
-                        "opening_value": 0,
-                        "currency": "euro"
-                    },
-                    {
-                        "asset_id": 10,
-                        "location_id": 1,
-                        "type_id": 4,
-                        "logo_id": undefined,
-                        "name": "Premium License",
-                        "comment": "needs to be checked",
-                        "construction_date": "01.01.2013",
-                        "opening_value": 1200,
-                        "currency": "euro"
-                    },
-                    {
-                        "asset_id": 11,
-                        "location_id": 1,
-                        "type_id": 4,
-                        "logo_id": undefined,
-                        "name": "Premium License",
-                        "comment": "needs to be checked",
-                        "construction_date": "01.01.2013",
-                        "opening_value": 1200,
-                        "currency": "euro"
-                    },
-                    {
-                        "asset_id": 12,
-                        "location_id": 1,
-                        "type_id": 4,
-                        "logo_id": undefined,
-                        "name": "Premium License",
-                        "comment": "needs to be checked",
-                        "construction_date": "01.01.2013",
-                        "opening_value": 1200,
-                        "currency": "euro"
-                    }]
-            };
-
-            $scope.assets = mockAssets.assets;
-            $scope.paginationInfo.count = mockAssets.total;
-            $scope.paginationInfo.hasPrev = $scope.paginationInfo.page > 1;
-            $scope.paginationInfo.hasNext = mockAssets.assets.length >= $scope.paginationInfo.pageSize;
-
-        };
-
-        $scope.paginatePrev = function () {
-            if ($scope.paginationInfo.hasPrev) {
-                $scope.paginationInfo.page -= 1;
+            timer = setTimeout(function () {
                 $scope.getPaginated();
-            }
-        };
-
-        $scope.paginateNext = function () {
-            if ($scope.paginationInfo.hasNext) {
-                $scope.paginationInfo.page += 1;
-                $scope.getPaginated();
-            }
-        };
-
-        $scope.search = function () {
-            //search wurde noch nicht implementiert und eignet sich auch nicht für mockobjekte ;)
+            }, 300);
         };
 
         $scope.$watch('paginationInfo.searchText', function () {
@@ -603,38 +181,36 @@ assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$rou
 
             //console.log($files);
 
-            $scope.imageUrl= 'images/spqr.png';
-
-
+            $scope.imageUrl = 'images/spqr.png';
 
 
             /*
-            // $files: an array of files selected, each file has name, size, and type.
-            for (var i = 0; i < $files.length; i++) {
-                var file = $files[i];
-                /*$scope.upload = $upload.upload({
-                    url: 'file',
-                    method: 'POST',
-                    file: file
-                }).progress(function (evt) {
-                    console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-                }).success(function (data /*, status, headers, config) { // file is uploaded successfully
+             // $files: an array of files selected, each file has name, size, and type.
+             for (var i = 0; i < $files.length; i++) {
+             var file = $files[i];
+             /*$scope.upload = $upload.upload({
+             url: 'file',
+             method: 'POST',
+             file: file
+             }).progress(function (evt) {
+             console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+             }).success(function (data /*, status, headers, config) { // file is uploaded successfully
 
-                    console.log("bis hier hin");
-                    console.log(data);
-                    console.log("bis hier hin2");
-                    $scope.uploads = data;
+             console.log("bis hier hin");
+             console.log(data);
+             console.log("bis hier hin2");
+             $scope.uploads = data;
 
 
-                    if (data != null && data.length > 0) {
-                        var i = data[0];
-                        console.log("bis hier hin3");
-                        $scope.asset.logo_id = i.logo_id;
-                        $scope.imageUrl = i.imageUrl;
-                    }
-                });
+             if (data != null && data.length > 0) {
+             var i = data[0];
+             console.log("bis hier hin3");
+             $scope.asset.logo_id = i.logo_id;
+             $scope.imageUrl = i.imageUrl;
+             }
+             });
 
-            }*/
+             }*/
         }
 
 

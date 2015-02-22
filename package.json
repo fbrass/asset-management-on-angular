@@ -1,10 +1,15 @@
 {
-  "name": "angular-seed",
+  "name": "asset-management-on-angular",
   "private": true,
+  "author":"fbrass",
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "An Asset Management System on AngularJS",
+  "repository": "https://github.com/fbrass/asset-management-on-angular",
   "license": "MIT",
+  "dependencies": {
+    "express": "^4.11.2",
+    "connect":"^2.27.3"
+  },
   "devDependencies": {
     "karma": "~0.10",
     "protractor": "^1.1.1",
@@ -26,7 +31,8 @@
     "protractor": "protractor e2e-tests/protractor.conf.js",
     "update-index-async": "node -e \"require('shelljs/global'); sed('-i', /\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/, '//@@NG_LOADER_START@@\\n' + sed(/sourceMappingURL=angular-loader.min.js.map/,'sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map','app/bower_components/angular-loader/angular-loader.min.js') + '\\n//@@NG_LOADER_END@@', 'app/index-async.html');\""
   },
-  "dependencies": {
-    "express": "^4.11.2"
-  }
+  "bugs": {
+    "url": "https://github.com/fbrass/asset-management-on-angular/issues"
+  },
+  "homepage": "https://github.com/fbrass/asset-management-on-angular"
 }
