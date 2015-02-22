@@ -13,7 +13,6 @@
             <div class="form-group">
                 <label for="assetlogo" ng-show="!dropSupported" class="control-label">Asset logo</label>
                 <input ng-show="!dropSupported" type="text" ng-model="asset.logo" id="assetlogo"/>
-
                 <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="file-upload-drag-over"
                      ng-show="dropSupported" class="file-upload-drop-area">
                     <div class="cell">

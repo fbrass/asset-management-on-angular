@@ -1,9 +1,5 @@
-/**
- * Created by said on 18.02.2015.
- */
-var assetManagementController = angular.module('assetManagementController', [
-
-]);
+'use strict';
+var assetManagementController = angular.module('assetManagementController', []);
 
 
 assetManagementController.controller('NavCtrl', ['$scope', '$route', function ($scope, $route) {
@@ -46,7 +42,7 @@ assetManagementController.controller('AssetTypeListCtrl', ['$scope', function ($
             "version": "X3",
             "description": "",
             "make": "",
-            "function": "Help",
+            "function": "Mounting",
             "comment": ""
         },
         {
@@ -55,7 +51,88 @@ assetManagementController.controller('AssetTypeListCtrl', ['$scope', function ($
             "version": "",
             "description": "",
             "make": "SPQR",
-            "function": "Help",
+            "function": "Modelling",
+            "comment": ""
+        },
+        {
+            "type_id": 6,
+            "assetTypeName": "Wireframe Design",
+            "version": "V2",
+            "description": "",
+            "make": "SPQR",
+            "function": "Modelling",
+            "comment": ""
+        },
+        {
+            "type_id": 7,
+            "assetTypeName": "License Management Tool",
+            "version": "1.374",
+            "description": "",
+            "make": "Example",
+            "function": "Management",
+            "comment": ""
+        },
+        {
+            "type_id": 8,
+            "assetTypeName": "ERP System Professional",
+            "version": "V15",
+            "description": "ERP-System",
+            "make": "SPQR",
+            "function": "Enterprise Resource Planing",
+            "comment": ""
+        },
+        {
+            "type_id": 9,
+            "assetTypeName": "Information Manager",
+            "version": "",
+            "description": "",
+            "make": "",
+            "function": "",
+            "comment": ""
+        },
+        {
+            "type_id": 10,
+            "assetTypeName": "Key Manager",
+            "version": "V5",
+            "description": "",
+            "make": "",
+            "function": "",
+            "comment": ""
+        },
+        {
+            "type_id": 11,
+            "assetTypeName": "Email Server",
+            "version": "3.1",
+            "description": "",
+            "make": "SPQR",
+            "function": "",
+            "comment": ""
+        },
+        {
+            "type_id": 12,
+            "assetTypeName": "SPQR Phone Tracer",
+            "version": "2.4",
+            "description": "",
+            "make": "SPQR",
+            "function": "Tracing",
+            "comment": ""
+        },
+        {
+            "type_id": 13,
+            "assetTypeName": "SPQR Surveillance System",
+            "version": "",
+            "description": "",
+            "make": "SPQR",
+            "function": "Monitoring",
+            "comment": ""
+        },
+        {
+            "type_id": 6,
+            "assetTypeName": "Wireframe Design",
+            "version": "V2",
+            "description": "",
+            "make": "SPQR",
+            "function": "Modelling",
             "comment": ""
         }];
 
@@ -110,7 +187,7 @@ assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$route
 
                 mockAssets =
                 {
-                    "total": 2,
+                    "total": 8,
                     "assets": [
                         {
                             "asset_id": 1,
@@ -125,6 +202,72 @@ assetManagementController.controller('AssetListedByTypeCtrl', ['$scope', '$route
                         },
                         {
                             "asset_id": 3,
+                            "location_id": 1,
+                            "type_id": 1,
+                            "logo_id": undefined,
+                            "name": "Free License",
+                            "comment": "",
+                            "construction_date": "01.01.2015",
+                            "opening_value": 0,
+                            "currency": "euro"
+                        },
+                        {
+                            "asset_id": 4,
+                            "location_id": 1,
+                            "type_id": 1,
+                            "logo_id": undefined,
+                            "name": "Free License",
+                            "comment": "",
+                            "construction_date": "01.01.2015",
+                            "opening_value": 0,
+                            "currency": "euro"
+                        },
+                        {
+                            "asset_id": 5,
+                            "location_id": 1,
+                            "type_id": 1,
+                            "logo_id": undefined,
+                            "name": "Free License",
+                            "comment": "",
+                            "construction_date": "01.01.2015",
+                            "opening_value": 0,
+                            "currency": "euro"
+                        },
+                        {
+                            "asset_id": 6,
+                            "location_id": 1,
+                            "type_id": 1,
+                            "logo_id": undefined,
+                            "name": "Free License",
+                            "comment": "",
+                            "construction_date": "01.01.2015",
+                            "opening_value": 0,
+                            "currency": "euro"
+                        },
+                        {
+                            "asset_id": 7,
+                            "location_id": 1,
+                            "type_id": 1,
+                            "logo_id": undefined,
+                            "name": "Free License",
+                            "comment": "",
+                            "construction_date": "01.01.2015",
+                            "opening_value": 0,
+                            "currency": "euro"
+                        },
+                        {
+                            "asset_id": 8,
+                            "location_id": 1,
+                            "type_id": 1,
+                            "logo_id": undefined,
+                            "name": "Free License",
+                            "comment": "",
+                            "construction_date": "01.01.2015",
+                            "opening_value": 0,
+                            "currency": "euro"
+                        },
+                        {
+                            "asset_id": 9,
                             "location_id": 1,
                             "type_id": 1,
                             "logo_id": undefined,
@@ -214,7 +357,7 @@ assetManagementController.controller('AssetCtrl', ['$scope',
             //service aufruf!!! bzw. einfügen der Mockobjekte
             var mockAssets =
             {
-                "total": 3,
+                "total": 12,
                 "assets": [
                     {
                         "asset_id": 1,
@@ -247,6 +390,105 @@ assetManagementController.controller('AssetCtrl', ['$scope',
                         "comment": "",
                         "construction_date": "01.01.2015",
                         "opening_value": 0,
+                        "currency": "euro"
+                    },
+                    {
+                        "asset_id": 4,
+                        "location_id": 1,
+                        "type_id": 1,
+                        "logo_id": undefined,
+                        "name": "Free License",
+                        "comment": "",
+                        "construction_date": "01.01.2015",
+                        "opening_value": 0,
+                        "currency": "euro"
+                    },
+                    {
+                        "asset_id": 5,
+                        "location_id": 1,
+                        "type_id": 1,
+                        "logo_id": undefined,
+                        "name": "Free License",
+                        "comment": "",
+                        "construction_date": "01.01.2015",
+                        "opening_value": 0,
+                        "currency": "euro"
+                    },
+                    {
+                        "asset_id": 6,
+                        "location_id": 1,
+                        "type_id": 1,
+                        "logo_id": undefined,
+                        "name": "Free License",
+                        "comment": "",
+                        "construction_date": "01.01.2015",
+                        "opening_value": 0,
+                        "currency": "euro"
+                    },
+                    {
+                        "asset_id": 7,
+                        "location_id": 1,
+                        "type_id": 1,
+                        "logo_id": undefined,
+                        "name": "Free License",
+                        "comment": "",
+                        "construction_date": "01.01.2015",
+                        "opening_value": 0,
+                        "currency": "euro"
+                    },
+                    {
+                        "asset_id": 8,
+                        "location_id": 1,
+                        "type_id": 1,
+                        "logo_id": undefined,
+                        "name": "Free License",
+                        "comment": "",
+                        "construction_date": "01.01.2015",
+                        "opening_value": 0,
+                        "currency": "euro"
+                    },
+                    {
+                        "asset_id": 9,
+                        "location_id": 1,
+                        "type_id": 1,
+                        "logo_id": undefined,
+                        "name": "Free License",
+                        "comment": "",
+                        "construction_date": "01.01.2015",
+                        "opening_value": 0,
+                        "currency": "euro"
+                    },
+                    {
+                        "asset_id": 10,
+                        "location_id": 1,
+                        "type_id": 4,
+                        "logo_id": undefined,
+                        "name": "Premium License",
+                        "comment": "needs to be checked",
+                        "construction_date": "01.01.2013",
+                        "opening_value": 1200,
+                        "currency": "euro"
+                    },
+                    {
+                        "asset_id": 11,
+                        "location_id": 1,
+                        "type_id": 4,
+                        "logo_id": undefined,
+                        "name": "Premium License",
+                        "comment": "needs to be checked",
+                        "construction_date": "01.01.2013",
+                        "opening_value": 1200,
+                        "currency": "euro"
+                    },
+                    {
+                        "asset_id": 12,
+                        "location_id": 1,
+                        "type_id": 4,
+                        "logo_id": undefined,
+                        "name": "Premium License",
+                        "comment": "needs to be checked",
+                        "construction_date": "01.01.2013",
+                        "opening_value": 1200,
                         "currency": "euro"
                     }]
             };
@@ -359,18 +601,24 @@ assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$rou
 
         $scope.onFileSelect = function ($files) {
 
-            console.log($files);
+            //console.log($files);
 
+            $scope.imageUrl= 'images/spqr.png';
+
+
+
+
+            /*
             // $files: an array of files selected, each file has name, size, and type.
             for (var i = 0; i < $files.length; i++) {
                 var file = $files[i];
-                $scope.upload = $upload.upload({
+                /*$scope.upload = $upload.upload({
                     url: 'file',
                     method: 'POST',
                     file: file
                 }).progress(function (evt) {
                     console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-                }).success(function (data /*, status, headers, config*/) { // file is uploaded successfully
+                }).success(function (data /*, status, headers, config) { // file is uploaded successfully
 
                     console.log("bis hier hin");
                     console.log(data);
@@ -385,7 +633,8 @@ assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$rou
                         $scope.imageUrl = i.imageUrl;
                     }
                 });
-            }
+
+            }*/
         }
 
 

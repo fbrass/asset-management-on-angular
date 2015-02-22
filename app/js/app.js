@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 var assetManagementApp = angular.module('assetManagementApp', [
     'ngRoute',
+    'assetManagementServices',
     'assetManagementController',
     'angularFileUpload',
     'ui.bootstrap'
