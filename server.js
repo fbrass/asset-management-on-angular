@@ -13,43 +13,37 @@ var mockedAssetTypes = [
         "assetTypeName": "Default Asset Types",
         "description": "",
         "make": "",
-        "function": "",
-        "comment": ""
+        "function": ""
     },{
         "type_id": 2,
         "assetTypeName": "Monitoring Tools",
         "description": "",
         "make": "",
-        "function": "Monitoring",
-        "comment": ""
+        "function": "Monitoring"
     },{
         "type_id":3,
         "assetTypeName": "Test Tools",
         "description": "",
         "make": "",
-        "function": "Testing",
-        "comment": ""
+        "function": "Testing"
     },{
         "type_id":4,
         "assetTypeName": "Development Tools",
         "description": "",
         "make": "",
-        "function": "Development",
-        "comment": ""
+        "function": "Development"
     },{
         "type_id":5,
         "assetTypeName": "Visualisation Tools",
         "description": "",
         "make": "",
-        "function": "Visualisation",
-        "comment": ""
+        "function": "Visualisation"
     },{
         "type_id":6,
         "assetTypeName": "Database Tools",
         "description": "",
         "make": "",
-        "function": "DB",
-        "comment": ""
+        "function": "DB Management"
     }
 ];
 
