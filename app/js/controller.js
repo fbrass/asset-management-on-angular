@@ -41,13 +41,14 @@ assetManagementController.controller('AssetsCtrl', ['$scope', '$route', '$routeP
 
             var args;
             if (search) {
+                console.log(search);
                 args = {
                     pageSize: $scope.paginationInfo.pageSize,
                     page: $scope.paginationInfo.page,
                     searchText: search
                 };
             }
-            if ($routeParams.type_id) {
+            else if ($routeParams.type_id) {
                 args = {
                     pageSize: $scope.paginationInfo.pageSize,
                     page: $scope.paginationInfo.page,

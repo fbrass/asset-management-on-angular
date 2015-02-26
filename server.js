@@ -9,244 +9,412 @@ var html_dir = path.resolve('app/');
 
 var mockedAssetTypes = [
     {
-        "type_id": 1,
-        "assetTypeName": "Senator Monitoring Assistant",
-        "version": "14.01",
-        "description": "best tool ever",
-        "make": "SPQR",
-        "function": "Assessment",
+        "type_id":1,
+        "assetTypeName": "Default Asset Types",
+        "description": "",
+        "make": "",
+        "function": "",
         "comment": ""
-    }, {
+    },{
         "type_id": 2,
-        "assetTypeName": "SPQR Testing Tool",
-        "version": "V3",
-        "description": "",
-        "make": "SPQR",
-        "function": "Testing",
-        "comment": ""
-    }, {
-        "type_id": 3,
-        "assetTypeName": "Help Tool",
-        "version": "",
+        "assetTypeName": "Monitoring Tools",
         "description": "",
         "make": "",
-        "function": "Help",
-        "comment": ""
-    }, {
-        "type_id": 4,
-        "assetTypeName": "Mounting System",
-        "version": "X3",
-        "description": "",
-        "make": "",
-        "function": "Mounting",
-        "comment": ""
-    }, {
-        "type_id": 5,
-        "assetTypeName": "UML Design",
-        "version": "",
-        "description": "",
-        "make": "SPQR",
-        "function": "Modelling",
-        "comment": ""
-    }, {
-        "type_id": 6,
-        "assetTypeName": "Wireframe Design",
-        "version": "V2",
-        "description": "",
-        "make": "SPQR",
-        "function": "Modelling",
-        "comment": ""
-    }, {
-        "type_id": 7,
-        "assetTypeName": "License Management Tool",
-        "version": "1.374",
-        "description": "",
-        "make": "Example",
-        "function": "Management",
-        "comment": ""
-    }, {
-        "type_id": 8,
-        "assetTypeName": "ERP System Professional",
-        "version": "V15",
-        "description": "ERP-System",
-        "make": "SPQR",
-        "function": "Enterprise Resource Planing",
-        "comment": ""
-    }, {
-        "type_id": 9,
-        "assetTypeName": "Information Manager",
-        "version": "",
-        "description": "",
-        "make": "",
-        "function": "",
-        "comment": ""
-    }, {
-        "type_id": 10,
-        "assetTypeName": "Key Manager",
-        "version": "V5",
-        "description": "",
-        "make": "",
-        "function": "",
-        "comment": ""
-    }, {
-        "type_id": 11,
-        "assetTypeName": "Email Server",
-        "version": "3.1",
-        "description": "",
-        "make": "SPQR",
-        "function": "",
-        "comment": ""
-    }, {
-        "type_id": 12,
-        "assetTypeName": "SPQR Phone Tracer",
-        "version": "2.4",
-        "description": "",
-        "make": "SPQR",
-        "function": "Tracing",
-        "comment": ""
-    }, {
-        "type_id": 13,
-        "assetTypeName": "SPQR Surveillance System",
-        "version": "",
-        "description": "",
-        "make": "SPQR",
         "function": "Monitoring",
         "comment": ""
-    }, {
-        "type_id": 6,
-        "assetTypeName": "Wireframe Design",
-        "version": "V2",
+    },{
+        "type_id":3,
+        "assetTypeName": "Test Tools",
         "description": "",
-        "make": "SPQR",
-        "function": "Modelling",
+        "make": "",
+        "function": "Testing",
         "comment": ""
-    }];
+    },{
+        "type_id":4,
+        "assetTypeName": "Development Tools",
+        "description": "",
+        "make": "",
+        "function": "Development",
+        "comment": ""
+    },{
+        "type_id":5,
+        "assetTypeName": "Visualisation Tools",
+        "description": "",
+        "make": "",
+        "function": "Visualisation",
+        "comment": ""
+    },{
+        "type_id":6,
+        "assetTypeName": "Database Tools",
+        "description": "",
+        "make": "",
+        "function": "DB",
+        "comment": ""
+    }
+];
 
 var mockedAssets=  [
     {
         "asset_id": 1,
         "location_id": 1,
-        "type_id": 1,
+        "type_id": 2,
         "logo_id": undefined,
-        "name": "Premium License",
-        "comment": "needs to be checked",
+        "name": "Senator Monitoring Assistant",
+        "version":"14.01",
+        "comment": "RN01010",
         "construction_date": "01.01.2013",
-        "opening_value": 1200,
+        "opening_value": 0,
         "currency": "euro"
-    },
-    {
+    },{
+        "asset_id": 2,
+        "location_id": 1,
+        "type_id": 6,
+        "logo_id": undefined,
+        "name": "SensiHo Database Accelerator",
+        "version":"2.3",
+        "comment": "RN01011",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
         "asset_id": 3,
         "location_id": 1,
         "type_id": 1,
         "logo_id": undefined,
-        "name": "Free License",
-        "comment": "",
-        "construction_date": "01.01.2015",
+        "name": "SPQR Asset Management Tool",
+        "version":"7.2",
+        "comment": "RN01014",
+        "construction_date": "01.01.2013",
         "opening_value": 0,
         "currency": "euro"
-    },
-    {
+    },{
         "asset_id": 4,
         "location_id": 1,
-        "type_id": 1,
+        "type_id": 4,
         "logo_id": undefined,
-        "name": "Free License",
-        "comment": "",
-        "construction_date": "01.01.2015",
+        "name": "Artifactory Repository",
+        "version":"12.2",
+        "comment": "RN01017",
+        "construction_date": "01.01.2013",
         "opening_value": 0,
         "currency": "euro"
-    },
-    {
+    },{
         "asset_id": 5,
         "location_id": 1,
         "type_id": 1,
         "logo_id": undefined,
-        "name": "Free License",
-        "comment": "",
-        "construction_date": "01.01.2015",
+        "name": "CARGO Wrapper",
+        "version":"",
+        "comment": "RN01021",
+        "construction_date": "01.01.2013",
         "opening_value": 0,
         "currency": "euro"
-    },
-    {
+    },{
         "asset_id": 6,
         "location_id": 1,
-        "type_id": 1,
+        "type_id": 4,
         "logo_id": undefined,
-        "name": "Free License",
-        "comment": "",
-        "construction_date": "01.01.2015",
+        "name": "Chef Deployer",
+        "version":"",
+        "comment": "RN01034",
+        "construction_date": "01.01.2013",
         "opening_value": 0,
         "currency": "euro"
-    },
-    {
+    },{
         "asset_id": 7,
         "location_id": 1,
-        "type_id": 4,
+        "type_id": 3,
         "logo_id": undefined,
-        "name": "Free License",
-        "comment": "",
-        "construction_date": "01.01.2015",
+        "name": "Cobertus Test Coverage",
+        "version":"",
+        "comment": "RN01061",
+        "construction_date": "01.01.2013",
         "opening_value": 0,
         "currency": "euro"
-    },
-    {
+    },{
         "asset_id": 8,
         "location_id": 1,
-        "type_id": 4,
+        "type_id": 5,
         "logo_id": undefined,
-        "name": "Free License",
-        "comment": "",
-        "construction_date": "01.01.2015",
+        "name": "CodeVillage Visualizer",
+        "version":"",
+        "comment": "RN01072",
+        "construction_date": "01.01.2013",
         "opening_value": 0,
         "currency": "euro"
-    },
-    {
+    },{
         "asset_id": 9,
         "location_id": 1,
         "type_id": 4,
         "logo_id": undefined,
-        "name": "Free License",
-        "comment": "",
-        "construction_date": "01.01.2015",
+        "name": "Cucum DriverDevelopmentTool",
+        "version":"",
+        "comment": "RN01083",
+        "construction_date": "01.01.2013",
         "opening_value": 0,
         "currency": "euro"
-    }];
+    },{
+        "asset_id": 10,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "Fabric Docker",
+        "version":"",
+        "comment": "RN01097",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 11,
+        "location_id": 1,
+        "type_id": 6,
+        "logo_id": undefined,
+        "name": "Air FlyAwayDBMigration",
+        "version":"",
+        "comment": "RN01110",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 12,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "GoGo Flashbox",
+        "version":"",
+        "comment": "RN01145",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 13,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "SmartFish Handsome Cl",
+        "version":"",
+        "comment": "RN01234",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 14,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "Smartsoft CiPipe",
+        "version":"",
+        "comment": "RN01333",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 15,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "KarmaSoft Fixedbase Plugin",
+        "version":"",
+        "comment": "RN01451",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 16,
+        "location_id": 1,
+        "type_id": 5,
+        "logo_id": undefined,
+        "name": "GoodHere StructureGraph",
+        "version":"",
+        "comment": "RN01566",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 17,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "FrogGem FocusDancer",
+        "version":"",
+        "comment": "RN01671",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 18,
+        "location_id": 1,
+        "type_id": 4,
+        "logo_id": undefined,
+        "name": "PinkNet Pink4j GUI Builder",
+        "version":"",
+        "comment": "RN01728",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 19,
+        "location_id": 1,
+        "type_id": 3,
+        "logo_id": undefined,
+        "name": "IQ Soft Unified NonFunctional Testing",
+        "version":"",
+        "comment": "RN01831",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 20,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "Sonosar SonarLinkTogglTool",
+        "version":"",
+        "comment": "RN01842",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 21,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "ABC Helenium Browser Automation",
+        "version":"",
+        "comment": "RN01853",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 22,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "HelpMe PuppetPlayer",
+        "version":"",
+        "comment": "RN01867",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 23,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "WeirdSoft ClosedEJB",
+        "version":"",
+        "comment": "RN01911",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 24,
+        "location_id": 1,
+        "type_id": 5,
+        "logo_id": undefined,
+        "name": "RunSoft JMiles Performance Analyzer",
+        "version":"",
+        "comment": "RN01921",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 25,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "IQM Information Manager",
+        "version":"",
+        "comment": "RN01942",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 26,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "BuySoft EMailArchiver",
+        "version":"",
+        "comment": "RN01978",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 27,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "Microframe License Management",
+        "version":"",
+        "comment": "RN02024",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 28,
+        "location_id": 1,
+        "type_id": 1,
+        "logo_id": undefined,
+        "name": "HelloSoft Phone Tracer",
+        "version":"",
+        "comment": "RN02056",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    },{
+        "asset_id": 29,
+        "location_id": 1,
+        "type_id": 4,
+        "logo_id": undefined,
+        "name": "Microframe MisteriousDeployer",
+        "version":"",
+        "comment": "RN02456",
+        "construction_date": "01.01.2013",
+        "opening_value": 0,
+        "currency": "euro"
+    }
+];
 
 app.use(express.static(html_dir));
 
 app.get('/resources/assettypelist', function (req, res) {
-
-
     res.json(mockedAssetTypes);
-
-
 });
 
-//sends back all Assets
-app.get('/resources/assetlist/25/1', function (req, res) {
-    res.json(
-        {
-            "total": mockedAssets.length,
-            "assets": mockedAssets
-        });
-});
-
-//sends back all assets by type_id = 1
-app.get('/resources/assetlist/25/1//:typeId', function (req, res) {
-    var sortedMockedObjects=new Array();
-    for (var i= 0;i<mockedAssets.length;i++){
-        var tmp=mockedAssets[i];
-        if(tmp.type_id==req.params.typeId){
-            sortedMockedObjects.push(tmp);
+app.get('/resources/assetlist/',function(req,res){
+    var sortedMockedObjects=[];
+    var search=req.query.searchText;
+    var typeId=req.query.typeId;
+    var tmp;
+    var i;
+    if(typeId){
+        for (i= 0;i<mockedAssets.length;i++){
+            tmp=mockedAssets[i];
+            if(tmp.type_id==typeId){
+                sortedMockedObjects.push(tmp);
+            }
         }
     }
+    else if(search){
+        for (i=0;i<mockedAssets.length;i++) {
+            tmp=mockedAssets[i];
+            var j=tmp.name.indexOf(search);
+            if(j>=0){
 
+                sortedMockedObjects.push(tmp);
+            }
+        }
+    } else if(!search && !typeId){
+        sortedMockedObjects=mockedAssets;
+    }
     res.json(
         {
             "total": sortedMockedObjects.length,
             "assets": sortedMockedObjects
         }
     )
+
 });
 
 app.get('/resources/assets/:assetId', function(req,res) {
@@ -269,6 +437,96 @@ var server = app.listen(8080, function () {
     var host = server.address().adress;
     var port = server.address().port;
 
-    console.log('Example app listending at http://%s:%s', host, port);
+    console.log('Example app listening at http://%s:%s', host, port);
 
 });
+
+
+/*
+ "asset_id": 1,
+ "location_id": 1,
+ "type_id": 1,
+ "logo_id": undefined,
+ "name": "Premium License",
+ "comment": "needs to be checked",
+ "construction_date": "01.01.2013",
+ "opening_value": 1200,
+ "currency": "euro"
+ },
+ {
+ "asset_id": 3,
+ "location_id": 1,
+ "type_id": 1,
+ "logo_id": undefined,
+ "name": "Free License",
+ "comment": "",
+ "construction_date": "01.01.2015",
+ "opening_value": 0,
+ "currency": "euro"
+ },
+ {
+ "asset_id": 4,
+ "location_id": 1,
+ "type_id": 1,
+ "logo_id": undefined,
+ "name": "Free License",
+ "comment": "",
+ "construction_date": "01.01.2015",
+ "opening_value": 0,
+ "currency": "euro"
+ },
+ {
+ "asset_id": 5,
+ "location_id": 1,
+ "type_id": 1,
+ "logo_id": undefined,
+ "name": "Free License",
+ "comment": "",
+ "construction_date": "01.01.2015",
+ "opening_value": 0,
+ "currency": "euro"
+ },
+ {
+ "asset_id": 6,
+ "location_id": 1,
+ "type_id": 1,
+ "logo_id": undefined,
+ "name": "Free License",
+ "comment": "",
+ "construction_date": "01.01.2015",
+ "opening_value": 0,
+ "currency": "euro"
+ },
+ {
+ "asset_id": 7,
+ "location_id": 1,
+ "type_id": 4,
+ "logo_id": undefined,
+ "name": "Free License",
+ "comment": "",
+ "construction_date": "01.01.2015",
+ "opening_value": 0,
+ "currency": "euro"
+ },
+ {
+ "asset_id": 8,
+ "location_id": 1,
+ "type_id": 4,
+ "logo_id": undefined,
+ "name": "Free License",
+ "comment": "",
+ "construction_date": "01.01.2015",
+ "opening_value": 0,
+ "currency": "euro"
+ },
+ {
+ "asset_id": 9,
+ "location_id": 1,
+ "type_id": 4,
+ "logo_id": undefined,
+ "name": "Free License",
+ "comment": "",
+ "construction_date": "01.01.2015",
+ "opening_value": 0,
+ "currency": "euro"
+ }];*/
