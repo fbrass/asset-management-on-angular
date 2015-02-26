@@ -10,8 +10,8 @@ var html_dir = path.resolve('app/');
 var mockedAssetTypes = [
     {
         "type_id": 1,
-        "assetTypeName": "SPQR Assesment Tool",
-        "version": "V2",
+        "assetTypeName": "Senator Monitoring Assistant",
+        "version": "14.01",
         "description": "best tool ever",
         "make": "SPQR",
         "function": "Assessment",
@@ -181,7 +181,7 @@ var mockedAssets=  [
     {
         "asset_id": 7,
         "location_id": 1,
-        "type_id": 1,
+        "type_id": 4,
         "logo_id": undefined,
         "name": "Free License",
         "comment": "",
@@ -192,7 +192,7 @@ var mockedAssets=  [
     {
         "asset_id": 8,
         "location_id": 1,
-        "type_id": 1,
+        "type_id": 4,
         "logo_id": undefined,
         "name": "Free License",
         "comment": "",
@@ -203,7 +203,7 @@ var mockedAssets=  [
     {
         "asset_id": 9,
         "location_id": 1,
-        "type_id": 1,
+        "type_id": 4,
         "logo_id": undefined,
         "name": "Free License",
         "comment": "",
@@ -232,46 +232,35 @@ app.get('/resources/assetlist/25/1', function (req, res) {
 });
 
 //sends back all assets by type_id = 1
-app.get('/resources/assetlist/25/1/1', function (req, res) {
+app.get('/resources/assetlist/25/1//:typeId', function (req, res) {
+    var sortedMockedObjects=new Array();
+    for (var i= 0;i<mockedAssets.length;i++){
+        var tmp=mockedAssets[i];
+        if(tmp.type_id==req.params.typeId){
+            sortedMockedObjects.push(tmp);
+        }
+    }
+
     res.json(
         {
-            "total": 3,
-            "assets": [
-                {
-                    "asset_id": 1,
-                    "location_id": 1,
-                    "type_id": 1,
-                    "logo_id": undefined,
-                    "name": "Premium License",
-                    "comment": "needs to be checked",
-                    "construction_date": "01.01.2013",
-                    "opening_value": 1200,
-                    "currency": "euro"
-                },
-                {
-                    "asset_id": 3,
-                    "location_id": 1,
-                    "type_id": 1,
-                    "logo_id": undefined,
-                    "name": "Free License",
-                    "comment": "",
-                    "construction_date": "01.01.2015",
-                    "opening_value": 0,
-                    "currency": "euro"
-                },
-                {
-                    "asset_id": 4,
-                    "location_id": 1,
-                    "type_id": 1,
-                    "logo_id": undefined,
-                    "name": "Free License",
-                    "comment": "",
-                    "construction_date": "01.01.2015",
-                    "opening_value": 0,
-                    "currency": "euro"
-                }]
+            "total": sortedMockedObjects.length,
+            "assets": sortedMockedObjects
         }
     )
+});
+
+app.get('/resources/assets/:assetId', function(req,res) {
+    for ( var i=0;i<mockedAssets.length;i++){
+        if(mockedAssets[i].asset_id==req.params.assetId){
+            res.json(
+
+                    mockedAssets[i]
+
+            );
+        }
+    }
+
+
 });
 
 

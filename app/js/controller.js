@@ -110,8 +110,8 @@ assetManagementController.controller('AssetsCtrl', ['$scope', '$route', '$routeP
     }]);
 
 
-assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$routeParams', '$location', '$upload',
-    function ($scope, $route, $routeParams, $location, $upload) {
+assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$routeParams', '$location', '$upload','Asset',
+    function ($scope, $route, $routeParams, $location, $upload, Asset) {
         var editMode = $route.current.editMode !== 'create';
 
         $scope.isEditMode = editMode;
@@ -139,16 +139,11 @@ assetManagementController.controller('EditAssetCtrl', ['$scope', '$route', '$rou
         };
 
         if (editMode) {
-            //hier muss der service noch implementiert werden
-            $scope.asset = {
-                name: 'Premium License',
-                comment: 'needs to be checked',
-                "logo_id": undefined,
-                construction_date: dateToYMD(new Date()),
-                opening_value: 1200,
-                currency: 'euro'
+            $scope.asset = Asset.get({assetId: $routeParams.asset_id}, function(asset){
+                $scope.asset = asset;
+            });
 
-            };
+
         } else {
             $scope.asset = angular.copy(defaultForm);
         }
