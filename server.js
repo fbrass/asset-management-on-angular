@@ -353,7 +353,7 @@ var mockedAssets = [
         "name": "SPQR Asset Management Tool",
         "version": "7.2",
         "comment": "RN01014",
-        "construction_date": "01-01-2010",
+        "construction_date": "01-01-2014",
         "opening_value": 1200,
         "currency": "Euro"
     }, {
@@ -364,7 +364,7 @@ var mockedAssets = [
         "name": "WeirdSoft ClosedEJB",
         "version": "",
         "comment": "RN01911",
-        "construction_date": "01-01-2013",
+        "construction_date": "01-01-2014",
         "opening_value": 0,
         "currency": "euro"
     }
